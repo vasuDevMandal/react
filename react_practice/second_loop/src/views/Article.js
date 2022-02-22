@@ -1,13 +1,24 @@
 const Article = (props) => {
-  const articles = props.article;
-  const title = props.title;
+  const { articles, title, handleDelete } = props;
   return (
     <div className="article">
       <h2>{title}</h2>
       {articles.map((single) => (
-        <div className="single_unit" key={single.id}>
+        <div
+          className="single_unit"
+          key={single.id}
+          style={{ border: "1px solid black" }}
+        >
+          <span>blog number #{single.id}</span>
           <h3>title: {single.title}</h3>
           <h4>body: {single.body}</h4>
+          <button
+            onClick={() => {
+              handleDelete(single.id);
+            }}
+          >
+            delete
+          </button>
         </div>
       ))}
     </div>
