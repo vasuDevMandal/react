@@ -1,5 +1,6 @@
 const Article = (props) => {
   const { articles, title, handleDelete } = props;
+  console.log(articles);
   return (
     <div className="article">
       <h2>{title}</h2>
