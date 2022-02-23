@@ -1,16 +1,22 @@
+import { Link } from "react-router-dom";
+
 const Article = (props) => {
-  const { articles, title, handleDelete } = props;
-  console.log(articles);
+  const { blogs, title, handleDelete } = props;
+  console.log("article.js", blogs);
+
   return (
     <div className="article">
       <h2>{title}</h2>
-      {articles.map((single) => (
+      {blogs.map((single) => (
         <div
           className="single_unit"
           key={single.id}
           style={{ border: "1px solid black" }}
         >
-          <span>blog number #{single.id}</span>
+          <span>
+            {" "}
+            <Link to={`/article/${single.id}`}>blog number #{single.id}</Link>
+          </span>
           <h3>title: {single.title}</h3>
           <h4>body: {single.body}</h4>
           <button

@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import Article from "./Article";
 
 const About = () => {
-  const [articles, setArticles] = useState("");
+  const [blogs, setBlogs] = useState("");
   const handleDelete = (id) => {
-    const newArticles = articles.filter((single) => single.id !== id);
-    setArticles(newArticles);
+    const newBlogs = blogs.filter((single) => single.id !== id);
+    setBlogs(newBlogs);
     console.log("deleted blog number: ", id);
   };
   const [name, setName] = useState("my site");
@@ -18,18 +18,29 @@ const About = () => {
     }
   };
 
+  const abortCont = new AbortController();
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:3500/blogs")
+      fetch("http://localhost:5000/blogs", { signal: abortCont.signal })
         .then((res) => res.json())
         .then((data) => {
           setIsPending(false);
-          setArticles(data);
-          console.log(data);
+          setBlogs(data.blogs);
+          console.log("about.js", data.blogs);
         })
-        .catch((err) => console.log(err));
-    }, 5000);
-  }, []);
+        .catch((err) => {
+          console.log(err.name);
+          setIsPending(false);
+        });
+    }, 3000);
+
+    return () => {
+      console.log("clean up function ran in about.js");
+      console.log("fetch request aborted..");
+
+      abortCont.abort();
+    };
+  }, [abortCont]);
 
   useEffect(() => {
     console.log("name is changed..");
@@ -45,20 +56,20 @@ const About = () => {
         <h3>this is an about component</h3>
         {isPending && <h3>loading.....</h3>}
       </div>
-      {articles && (
+      {blogs && (
         <Article
-          articles={articles}
-          title="All Articles yay yay..--------------"
+          blogs={blogs}
+          title="All blogs yay yay..--------------"
           handleDelete={handleDelete}
         />
       )}
-      {/* {articles && (
+      {blogs && (
         <Article
-          articles={articles.filter((item) => item.title === "rajesh")}
-          title="rajesh Article---------"
+          blogs={blogs.filter((item) => item.id % 2 === 0)}
+          title="blogs with even id's---------"
           handleDelete={handleDelete}
         />
-      )} */}
+      )}
     </div>
   );
 };
