@@ -1,3 +1,5 @@
+import CarClassComponent from "./CarClassComponent";
+import CarFunComponent from "./CarFunComponent";
 import Test from "./Test";
 import UseContextHook from "./UseContextHook";
 import UseMemo from "./UseMemo";
@@ -10,7 +12,9 @@ function App() {
         {/* <Test /> */}
         {/* <UseMemo></UseMemo> */}
         {/* <UseRef></UseRef> */}
-        <UseContextHook></UseContextHook>
+        {/* <UseContextHook></UseContextHook> */}
+        <CarClassComponent />
+        <CarFunComponent />
       </div>
     </div>
   );
