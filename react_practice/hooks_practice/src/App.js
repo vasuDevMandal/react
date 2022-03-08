@@ -8,6 +8,8 @@ import UseMemo from "./UseMemo";
 import UseRef from "./UseRef";
 import ContextConsumer from "./component/ContextConsumerClass";
 import BooksContextProvider from "./context/BooksContextFunc";
+import UserPortal from "./component/UserPortal";
+import LoginControl from "./component/LoginControl";
 
 function App() {
   return (
@@ -20,9 +22,12 @@ function App() {
             {/* <UseRef></UseRef> */}
             {/* <UseContextHook></UseContextHook> */}
             {/* <CarClassComponent /> */}
-            <ContextConsumer />
-            <CarFunComponent />
-            <CarDisplay />
+            {/* <UserPortal isLoggedIn={false} who="Earth"></UserPortal> */}
+            {/* <UserPortal isLoggedIn={true} who="Pluto"></UserPortal> */}
+            <LoginControl></LoginControl>
+            {/* <ContextConsumer /> */}
+            {/* <CarFunComponent /> */}
+            {/* <CarDisplay /> */}
           </div>
         </BooksContextProvider>
       </CarContextProvider>
