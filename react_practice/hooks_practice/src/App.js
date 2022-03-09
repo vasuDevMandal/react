@@ -10,6 +10,8 @@ import ContextConsumer from "./component/ContextConsumerClass";
 import BooksContextProvider from "./context/BooksContextFunc";
 import UserPortal from "./component/UserPortal";
 import LoginControl from "./component/LoginControl";
+import ContextConsumerClass from "./component/ContextConsumerClass";
+import Form from "./component/From";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             {/* <ContextConsumer /> */}
             {/* <CarFunComponent /> */}
             {/* <CarDisplay /> */}
+            {/* <ContextConsumerClass /> */}
+            <Form />
           </div>
         </BooksContextProvider>
       </CarContextProvider>
