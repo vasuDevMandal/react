@@ -12,6 +12,10 @@ import UserPortal from "./component/UserPortal";
 import LoginControl from "./component/LoginControl";
 import ContextConsumerClass from "./component/ContextConsumerClass";
 import Form from "./component/From";
+import BoilingVerdict from "./component/BoilingVerdict";
+import Calculator from "./component/Calculator";
+import FancyBorder from "./component/FancyBorder";
+import FancyChild from "./component/FancyChild";
 
 function App() {
   return (
@@ -26,12 +30,18 @@ function App() {
             {/* <CarClassComponent /> */}
             {/* <UserPortal isLoggedIn={false} who="Earth"></UserPortal> */}
             {/* <UserPortal isLoggedIn={true} who="Pluto"></UserPortal> */}
-            <LoginControl></LoginControl>
+            {/* <LoginControl></LoginControl> */}
             {/* <ContextConsumer /> */}
             {/* <CarFunComponent /> */}
             {/* <CarDisplay /> */}
             {/* <ContextConsumerClass /> */}
-            <Form />
+            {/* <Form /> */}
+            {/* <BoilingVerdict celcius={100} /> */}
+            {/* <Calculator /> */}
+
+            <FancyBorder>
+              <FancyChild />
+            </FancyBorder>
           </div>
         </BooksContextProvider>
       </CarContextProvider>
